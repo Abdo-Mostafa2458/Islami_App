@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/constants/app_routes.dart';
 import 'package:islami_app/home__screen.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Islami App',
       debugShowCheckedModeBanner: false,
       routes: {
-        HomeScreen.routeName: (_) => HomeScreen(),
+        AppRoutes.routeName: (_) => HomeScreen(),
       },
     );
   }
