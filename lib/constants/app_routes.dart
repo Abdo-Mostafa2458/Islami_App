@@ -1,3 +1,4 @@
 class AppRoutes {
-  static const String routeName = '/';
+  static const String homeScreen = '/';
+  static const String suraQuran = '/SuraQuran';
 }
