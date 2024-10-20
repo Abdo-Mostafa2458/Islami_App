@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/Widgets/defualt_screen.dart';
 import 'package:islami_app/constants/AppColors.dart';
-import 'package:islami_app/constants/get_path_image.dart';
 
 import '../data/quran_data.dart';
 
@@ -22,35 +22,18 @@ class _SuraQuranState extends State<SuraQuran> {
     if (verses.isEmpty) {
       loadFile(quranData.indexOfSura);
     }
-    return Stack(
-      children: [
-        Image.asset(
-          getPathImage("main_background.png"),
-          fit: BoxFit.fill,
-          width: double.infinity,
-          height: double.infinity,
-        ),
-        Scaffold(
-          appBar: AppBar(
-            title: Text(
-              quranData.ayaName,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-          ),
-          body: verses.isEmpty
-              ? const Center(
-                  child: CircularProgressIndicator(
-                  color: Appcolors.primaryColor,
-                ))
-              : ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Text(verses[index]);
-                  },
-                  itemCount: verses.length,
-                ),
-        )
-      ],
-    );
+    return DefaultScreen(
+        appTitle: quranData.ayaName,
+        body: verses.isEmpty
+            ? const CircularProgressIndicator(
+                color: Appcolors.primaryColor,
+              )
+            : ListView.builder(
+                itemBuilder: (context, index) {
+                  return Text(verses[index]);
+                },
+                itemCount: verses.length,
+              ));
   }
 
   void loadFile(int index) async {
@@ -61,3 +44,32 @@ class _SuraQuranState extends State<SuraQuran> {
     setState(() {});
   }
 }
+// Stack(
+// children: [
+// Image.asset(
+// getPathImage("main_background.png"),
+// fit: BoxFit.fill,
+// width: double.infinity,
+// height: double.infinity,
+// ),
+// Scaffold(
+// appBar: AppBar(
+// title: Text(
+// quranData.ayaName,
+// style: Theme.of(context).textTheme.bodySmall,
+// ),
+// ),
+// body: verses.isEmpty
+// ? const Center(
+// child: CircularProgressIndicator(
+// color: Appcolors.primaryColor,
+// ))
+//     : ListView.builder(
+// itemBuilder: (context, index) {
+// return Text(verses[index]);
+// },
+// itemCount: verses.length,
+// ),
+// )
+// ],
+// )
