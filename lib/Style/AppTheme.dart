@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/constants/AppColors.dart';
+import 'package:islami_app/Style/AppColors.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
@@ -11,12 +11,14 @@ class AppTheme {
           centerTitle: true,
           iconTheme: IconThemeData(size: 28, color: Colors.black)),
       textTheme: TextTheme(
-          titleMedium: TextStyle(
-              color: Colors.black, fontSize: 32, fontWeight: FontWeight.w700),
-          bodyMedium: TextStyle(
-              color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
-          bodySmall: TextStyle(
-              color: Colors.black, fontSize: 28, fontWeight: FontWeight.w400)),
+        titleMedium: TextStyle(
+            color: Colors.black, fontSize: 32, fontWeight: FontWeight.w700),
+        bodyMedium: TextStyle(
+            color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
+        bodySmall: TextStyle(
+            color: Colors.black, fontSize: 28, fontWeight: FontWeight.w400),
+        displaySmall: TextStyle(),
+      ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: Appcolors.primaryColor,
           selectedItemColor: Colors.black,

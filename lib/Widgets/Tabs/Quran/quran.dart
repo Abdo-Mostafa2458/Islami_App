@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/constants/AppColors.dart';
+import 'package:islami_app/Style/AppColors.dart';
 import 'package:islami_app/constants/app_routes.dart';
 import 'package:islami_app/constants/get_path_image.dart';
 
-import '../data/quran_data.dart';
+import '../../../data/quran_data.dart';
 
 class Quran extends StatelessWidget {
   final List<String> argumentsQuran = [
