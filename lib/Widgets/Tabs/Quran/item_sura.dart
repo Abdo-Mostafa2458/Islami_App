@@ -7,8 +7,7 @@ class ItemSura extends StatelessWidget {
   String verses;
   String ayaTitle;
   int indexOfAya;
-
-  ItemSura(
+   ItemSura(
       {required this.verses,
       required this.indexOfAya,
       required this.ayaTitle,
@@ -19,7 +18,7 @@ class ItemSura extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(vertical: 5.0),
           child: Row(
             children: [
               Stack(

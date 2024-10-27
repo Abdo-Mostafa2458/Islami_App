@@ -43,34 +43,35 @@ class _SuraQuranState extends State<SuraQuran> {
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 50.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Divider(
-                          color: Appcolors.primaryColor,
-                          thickness: 3,
-                          height: 20,
-                          // Adjust the height as needed
-                          indent: 70,
-                          endIndent: 70,
-                        ),
-                        Container(
-                          color: Colors.white,
-                          // Background to cover divider behind text
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text(
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 100, vertical: 2),
+                      child: Column(
+                        children: [
+                          Text(
                             quranData.ayaName,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Appcolors.primaryColor,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.copyWith(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.08),
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Divider(
+                            color: Appcolors.primaryColor,
+                            thickness: 3,
+                            height: 1, // Minimize divider height
+                          )
+                        ],
+                      ),
                     ),
                     Expanded(
                       child: ListView.builder(
