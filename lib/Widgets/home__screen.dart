@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/Style/AppColors.dart';
 import 'package:islami_app/constants/get_path_image.dart';
 
-import 'Widgets/Tabs/Hadeth/hadeth.dart';
-import 'Widgets/Tabs/Quran/quran.dart';
-import 'Widgets/Tabs/Radio/radio.dart';
-import 'Widgets/Tabs/Sebha/sebha.dart';
+import 'Tabs/Hadeth/hadeth.dart';
+import 'Tabs/Quran/quran_tab.dart';
+import 'Tabs/Radio/radio.dart';
+import 'Tabs/Sebha/sebha.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

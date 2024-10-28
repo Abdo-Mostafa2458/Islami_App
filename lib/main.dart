@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/sura_quran.dart';
+import 'package:islami_app/Widgets/home__screen.dart';
 import 'package:islami_app/constants/app_routes.dart';
-import 'package:islami_app/home__screen.dart';
 
 void main() {
   runApp(const MyApp());

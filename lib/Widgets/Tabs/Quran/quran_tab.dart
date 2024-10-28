@@ -122,6 +122,122 @@ class Quran extends StatelessWidget {
     "الفلق",
     "الناس"
   ];
+  final List<int> versesNumber = [
+    7,
+    286,
+    200,
+    176,
+    120,
+    165,
+    206,
+    75,
+    129,
+    109,
+    123,
+    111,
+    43,
+    52,
+    99,
+    128,
+    111,
+    110,
+    98,
+    135,
+    112,
+    78,
+    118,
+    64,
+    77,
+    227,
+    93,
+    88,
+    69,
+    60,
+    34,
+    30,
+    73,
+    54,
+    45,
+    83,
+    182,
+    88,
+    75,
+    85,
+    54,
+    53,
+    89,
+    59,
+    37,
+    35,
+    38,
+    29,
+    18,
+    45,
+    60,
+    49,
+    62,
+    55,
+    78,
+    96,
+    29,
+    22,
+    24,
+    13,
+    14,
+    11,
+    11,
+    18,
+    12,
+    12,
+    30,
+    52,
+    52,
+    44,
+    28,
+    28,
+    20,
+    56,
+    40,
+    31,
+    50,
+    40,
+    46,
+    42,
+    29,
+    19,
+    36,
+    25,
+    22,
+    17,
+    19,
+    26,
+    30,
+    20,
+    15,
+    21,
+    11,
+    8,
+    5,
+    19,
+    5,
+    8,
+    8,
+    11,
+    11,
+    8,
+    3,
+    9,
+    5,
+    4,
+    6,
+    3,
+    6,
+    3,
+    5,
+    4,
+    5,
+    6
+  ];
 
   Quran({super.key});
 
@@ -143,9 +259,33 @@ class Quran extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(
-              "Aya Name",
-              style: Theme.of(context).textTheme.bodySmall,
+            Expanded(
+              child: Text(
+                "Verses Name",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(fontSize: 25),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(
+              height: 50, // Set the desired height for the divider
+              child: VerticalDivider(
+                color: Appcolors.primaryColor,
+                thickness: 3,
+                width: 20, // Increase width to make the divider visible
+              ),
+            ),
+            Expanded(
+              child: Text(
+                "Verses Number",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(fontSize: 25),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),
@@ -157,28 +297,50 @@ class Quran extends StatelessWidget {
         Expanded(
           flex: 2,
           child: ListView.separated(
-              itemBuilder: (context, index) {
-                return InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.suraQuran,
-                          arguments: QuranData(
-                              ayaName: argumentsQuran[index],
-                              indexOfSura: index));
-                    },
+            physics: RangeMaintainingScrollPhysics(),
+            itemBuilder: (context, index) => InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.suraQuran,
+                    arguments: QuranData(
+                        ayaName: argumentsQuran[index], indexOfSura: index));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
                     child: Text(
                       argumentsQuran[index],
                       style: Theme.of(context).textTheme.bodySmall,
                       textAlign: TextAlign.center,
-                    ));
-              },
-              separatorBuilder: (context, index) => const Divider(
-                    color: Appcolors.primaryColor,
-                    thickness: 3,
-                    height: 3,
-                    indent: 25,
-                    endIndent: 25,
+                    ),
                   ),
-              itemCount: argumentsQuran.length),
+                  SizedBox(
+                    height: 50,
+                    child: VerticalDivider(
+                      color: Appcolors.primaryColor,
+                      thickness: 3,
+                      width: 20, // Increase width to make the divider visible
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      versesNumber[index].toString(),
+                      style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            separatorBuilder: (context, index) => const Divider(
+              color: Appcolors.primaryColor,
+              thickness: 3,
+              height: 3,
+              indent: 25,
+              endIndent: 25,
+            ),
+            itemCount: argumentsQuran.length,
+          ),
         )
       ],
     );
