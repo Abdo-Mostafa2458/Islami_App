@@ -22,7 +22,7 @@ class DefaultScreen extends StatelessWidget {
           appBar: AppBar(
             title: Text(
               appTitle,
-              style: Theme.of(context).textTheme.bodySmall,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           body: body,
