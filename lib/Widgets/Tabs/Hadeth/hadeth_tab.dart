@@ -13,7 +13,8 @@ class HadethTab extends StatefulWidget {
 }
 
 class _HadethTabState extends State<HadethTab> {
-  final List<HadethData> alHadeth = [];
+  // final List<HadethData> alHadeth = [];
+  final List<Map<String, dynamic>> alHadeth = [];
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +53,16 @@ class _HadethTabState extends State<HadethTab> {
                     return InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, AppRoutes.hadethWidget,
-                              arguments: alHadeth[index]);
+                              // arguments: alHadeth[index]
+                              arguments: {
+                                // "alHadeth" : alHadeth[index]
+                                "title": alHadeth[index]["title"],
+                                "content": alHadeth[index]["content"]
+                              });
                         },
                         child: Text(
-                          alHadeth[index].title,
+                          // alHadeth[index].title,
+                          alHadeth[index]["title"] ?? "",
                           style: Theme.of(context).textTheme.bodySmall,
                           textAlign: TextAlign.center,
                         ));
@@ -84,15 +91,16 @@ class _HadethTabState extends State<HadethTab> {
       hadethLines.join("\n");
       // alHadeth hadeth =HadethData(title: title, content: hadethLines);
       // allHadeth.add(hadeth);
-      alHadeth.add(HadethData(title: title, content: hadethLines));
+      // alHadeth.add(HadethData(title: title, content: hadethLines));
+      alHadeth.add({"title": title, "content": hadethLines});
       setState(() {});
     }
   }
 }
 
-class HadethData {
-  String title;
-  List<String> content;
-
-  HadethData({required this.title, required this.content});
-}
+// class HadethData {
+//   String title;
+//   List<String> content;
+//
+//   HadethData({required this.title, required this.content});
+// }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/Widgets/Tabs/Hadeth/hadeth_tab.dart';
 import 'package:islami_app/constants/media_size.dart';
 
 import '../../../Style/AppColors.dart';
@@ -10,8 +9,10 @@ class HadethWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HadethData hadeth =
-        ModalRoute.of(context)?.settings.arguments as HadethData;
+    // HadethData hadeth =
+    //     ModalRoute.of(context)?.settings.arguments as HadethData;
+    Map<String, dynamic> hadeth =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     return DefaultScreen(
       appTitle: "Islami",
       body: Card(
@@ -32,7 +33,8 @@ class HadethWidget extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    hadeth.title,
+                    // hadeth.title,
+                    hadeth["title"],
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontSize: MediaQuery.of(context).size.width * 0.07),
                   ),
@@ -52,14 +54,15 @@ class HadethWidget extends StatelessWidget {
                 child: ListView.builder(
                   padding: const EdgeInsets.all(5),
                   itemBuilder: (context, index) => Text(
-                    hadeth.content[index],
+                    // hadeth.content[index],
+                    hadeth["content"][index],
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
                         ?.copyWith(fontSize: getWidthSize(context, 0.05)),
                     textDirection: TextDirection.rtl,
                   ),
-                  itemCount: hadeth.content.length,
+                  itemCount: hadeth["content"].length,
                 ),
               )
             ],
