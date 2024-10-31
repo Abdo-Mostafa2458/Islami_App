@@ -6,12 +6,14 @@ import '../../../Style/AppColors.dart';
 import '../../../constants/get_path_image.dart';
 
 class HadethTab extends StatefulWidget {
+  const HadethTab({super.key});
+
   @override
   State<HadethTab> createState() => _HadethTabState();
 }
 
 class _HadethTabState extends State<HadethTab> {
-  List<HadethData> alHadeth = [];
+  final List<HadethData> alHadeth = [];
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class _HadethTabState extends State<HadethTab> {
         Image.asset(
           getPathImage("hadith_header_image.png"),
         ),
-        Divider(
+        const Divider(
           color: Appcolors.primaryColor,
           thickness: 3,
           height: 4,
@@ -33,14 +35,14 @@ class _HadethTabState extends State<HadethTab> {
           style: Theme.of(context).textTheme.bodyMedium,
           textAlign: TextAlign.center,
         ),
-        Divider(
+        const Divider(
           color: Appcolors.primaryColor,
           thickness: 3,
           height: 4,
         ),
         Expanded(
           child: alHadeth.isEmpty
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(
                     color: Appcolors.primaryColor,
                   ),

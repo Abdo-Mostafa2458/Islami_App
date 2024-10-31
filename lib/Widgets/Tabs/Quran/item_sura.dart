@@ -4,10 +4,11 @@ import 'package:islami_app/constants/get_path_image.dart';
 import '../../../Style/AppColors.dart';
 
 class ItemSura extends StatelessWidget {
-  String verses;
-  String ayaTitle;
-  int indexOfAya;
-   ItemSura(
+  final String verses;
+  final String ayaTitle;
+  final int indexOfAya;
+
+  const ItemSura(
       {required this.verses,
       required this.indexOfAya,
       required this.ayaTitle,
@@ -40,7 +41,7 @@ class ItemSura extends StatelessWidget {
               ),
               Expanded(
                   child: Text(
-                "${verses}",
+                    verses,
                 textDirection: TextDirection.rtl,
                 style: Theme.of(context).textTheme.bodySmall,
                 textAlign: TextAlign.center,
@@ -48,7 +49,7 @@ class ItemSura extends StatelessWidget {
             ],
           ),
         ),
-        Divider(
+        const Divider(
           color: Appcolors.primaryColor,
           thickness: 3,
           height: 3,

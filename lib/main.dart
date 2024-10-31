@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       routes: {
         AppRoutes.homeScreen: (_) => const HomeScreen(),
-        AppRoutes.suraQuran: (_) => SuraQuran(),
+        AppRoutes.suraQuran: (_) => const SuraQuran(),
         AppRoutes.hadethWidget: (_) => HadethWidget()
       },
     );
