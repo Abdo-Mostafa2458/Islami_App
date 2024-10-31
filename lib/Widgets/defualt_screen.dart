@@ -5,8 +5,10 @@ import '../constants/get_path_image.dart';
 class DefaultScreen extends StatelessWidget {
   String appTitle;
   Widget? body;
+  Widget? customBottomNavigationBar;
 
-  DefaultScreen({this.body, this.appTitle = ""});
+  DefaultScreen(
+      {this.body, this.customBottomNavigationBar, this.appTitle = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class DefaultScreen extends StatelessWidget {
             ),
           ),
           body: body,
+          bottomNavigationBar: customBottomNavigationBar,
         )
       ],
     );

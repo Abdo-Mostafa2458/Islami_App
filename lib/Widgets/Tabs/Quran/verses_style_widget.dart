@@ -5,11 +5,11 @@ import '../../../constants/numbers_list.dart';
 import '../../../constants/quran_list.dart';
 
 class VersesStyleWidget extends StatelessWidget {
-  String text1;
-  String text2;
-  int index;
+  final String text1;
+  final String text2;
+  final int index;
 
-  VersesStyleWidget(
+  const VersesStyleWidget(
       {required this.text1,
       required this.text2,
       required this.index,
@@ -27,7 +27,7 @@ class VersesStyleWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
           child: VerticalDivider(
             color: Appcolors.primaryColor,

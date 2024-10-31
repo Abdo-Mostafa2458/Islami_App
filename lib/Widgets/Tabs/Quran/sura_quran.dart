@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:islami_app/Style/AppColors.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/item_sura.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
+import 'package:islami_app/constants/media_size.dart';
 
 import '../../../data/quran_data.dart';
 
@@ -26,16 +27,16 @@ class _SuraQuranState extends State<SuraQuran> {
     return DefaultScreen(
       appTitle: quranData.ayaName,
       body: verses.isEmpty
-          ? Center(
+          ? const Center(
               heightFactor: 15,
-              child: const CircularProgressIndicator(
+              child: CircularProgressIndicator(
                 color: Appcolors.primaryColor,
               ),
             )
           : Card(
               margin: EdgeInsets.symmetric(
-                vertical: MediaQuery.of(context).size.height * 0.04,
-                horizontal: MediaQuery.of(context).size.width * 0.04,
+                vertical: getHeightSize(context, 0.04),
+                horizontal: getWidthSize(context, 0.04),
               ),
               elevation: 5,
               color: Colors.white,
@@ -48,8 +49,9 @@ class _SuraQuranState extends State<SuraQuran> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 100, vertical: 2),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: getWidthSize(context, 0.100),
+                          vertical: getWidthSize(context, 0.0001)),
                       child: Column(
                         children: [
                           Text(
@@ -58,14 +60,12 @@ class _SuraQuranState extends State<SuraQuran> {
                                 .textTheme
                                 .bodySmall
                                 ?.copyWith(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.08),
+                                    fontSize: getWidthSize(context, 0.08)),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 3,
                           ),
-                          Divider(
+                          const Divider(
                             color: Appcolors.primaryColor,
                             thickness: 3,
                             height: 1, // Minimize divider height
