@@ -6,10 +6,9 @@ import 'package:islami_app/constants/get_path_image.dart';
 
 import '../../../constants/numbers_list.dart';
 import '../../../constants/quran_list.dart';
-import '../../../data/quran_data.dart';
 
 class QuranTab extends StatelessWidget {
-  QuranTab({super.key});
+  const QuranTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +70,10 @@ class QuranTab extends StatelessWidget {
             physics: const RangeMaintainingScrollPhysics(),
             itemBuilder: (context, index) => InkWell(
               onTap: () {
-                Navigator.pushNamed(context, AppRoutes.suraQuran,
-                    arguments: QuranData(
-                        ayaName: argumentsQuran[index], indexOfSura: index));
+                Navigator.pushNamed(context, AppRoutes.suraQuran, arguments:
+                    // QuranData(
+                    //     ayaName: argumentsQuran[index], indexOfSura: index)
+                    {"ayaName": argumentsQuran[index], "indexOfSura": index});
               },
               child: VersesStyleWidget(
                   text1: argumentsQuran[index],
@@ -94,3 +94,4 @@ class QuranTab extends StatelessWidget {
     );
   }
 }
+// Quran Data class

@@ -5,8 +5,6 @@ import 'package:islami_app/Widgets/Tabs/Quran/item_sura.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
 import 'package:islami_app/constants/media_size.dart';
 
-import '../../../data/quran_data.dart';
-
 class SuraQuran extends StatefulWidget {
   const SuraQuran({super.key});
 
@@ -19,13 +17,19 @@ class _SuraQuranState extends State<SuraQuran> {
 
   @override
   Widget build(BuildContext context) {
-    QuranData quranData =
-        ModalRoute.of(context)?.settings.arguments as QuranData;
+    // QuranData quranData =
+    //     ModalRoute.of(context)?.settings.arguments as QuranData;
+    Map<String, dynamic> quranData =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    // if (verses.isEmpty) {
+    //   loadFile(quranData.indexOfSura);
+    // }
     if (verses.isEmpty) {
-      loadFile(quranData.indexOfSura);
+      loadFile(quranData["indexOfSura"]);
     }
     return DefaultScreen(
-      appTitle: quranData.ayaName,
+      // appTitle: quranData.ayaName,
+      appTitle: quranData["ayaName"],
       body: verses.isEmpty
           ? const Center(
               heightFactor: 15,
@@ -55,7 +59,7 @@ class _SuraQuranState extends State<SuraQuran> {
                       child: Column(
                         children: [
                           Text(
-                            quranData.ayaName,
+                            quranData["ayaName"],
                             style: Theme.of(context)
                                 .textTheme
                                 .bodySmall
@@ -79,7 +83,7 @@ class _SuraQuranState extends State<SuraQuran> {
                           return ItemSura(
                             verses: verses[index],
                             indexOfAya: index,
-                            ayaTitle: quranData.ayaName,
+                            ayaTitle: quranData["ayaName"],
                           );
                         },
                         itemCount: verses.length,
