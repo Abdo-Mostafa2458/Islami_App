@@ -8,8 +8,8 @@ import '../../../constants/numbers_list.dart';
 import '../../../constants/quran_list.dart';
 import '../../../data/quran_data.dart';
 
-class Quran extends StatelessWidget {
-  const Quran({super.key});
+class QuranTab extends StatelessWidget {
+  QuranTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +67,7 @@ class Quran extends StatelessWidget {
         Expanded(
           flex: 2,
           child: ListView.separated(
+            shrinkWrap: true,
             physics: const RangeMaintainingScrollPhysics(),
             itemBuilder: (context, index) => InkWell(
               onTap: () {
@@ -78,7 +79,7 @@ class Quran extends StatelessWidget {
                   text1: argumentsQuran[index],
                   text2: versesNumber[index].toString(),
                   index: index),
-            ),
+                ),
             separatorBuilder: (context, index) => const Divider(
               color: Appcolors.primaryColor,
               thickness: 3,
