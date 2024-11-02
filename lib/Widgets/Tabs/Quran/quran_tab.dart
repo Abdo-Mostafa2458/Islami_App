@@ -66,6 +66,7 @@ class QuranTab extends StatelessWidget {
         Expanded(
           flex: 2,
           child: ListView.separated(
+            key: const PageStorageKey<String>("page"),
             shrinkWrap: true,
             physics: const RangeMaintainingScrollPhysics(),
             itemBuilder: (context, index) => InkWell(
@@ -77,8 +78,8 @@ class QuranTab extends StatelessWidget {
               },
               child: VersesStyleWidget(
                   text1: argumentsQuran[index],
-                  text2: versesNumber[index].toString(),
-                  index: index),
+                      text2: versesNumber[index].toString(),
+                      index: index),
                 ),
             separatorBuilder: (context, index) => const Divider(
               color: Appcolors.primaryColor,
