@@ -74,7 +74,7 @@ class _HadethTabState extends State<HadethTab> {
                         indent: 50,
                         endIndent: 50,
                       ),
-                  itemCount: 10),
+                  itemCount: alHadeth.length),
         )
       ],
     );
