@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Style/AppColors.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/verses_style_widget.dart';
 import 'package:islami_app/constants/app_routes.dart';
@@ -30,7 +31,7 @@ class QuranTab extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                "Verses Name",
+                AppLocalizations.of(context)!.verses_Name,
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall
@@ -48,7 +49,7 @@ class QuranTab extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                "Verses Number",
+                AppLocalizations.of(context)!.verses_Number,
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Style/AppColors.dart';
+import 'package:islami_app/Widgets/Tabs/Settings/settings.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
 import 'package:islami_app/constants/get_path_image.dart';
 
@@ -20,14 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     QuranTab(),
     HadethTab(),
-    Sebha(),
+    SebhaTab(),
     Radioo(),
+    Settings()
   ];
 
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(
-      appTitle: "Islami",
+      appTitle: AppLocalizations.of(context)!.app_title,
       body: tabs[currentIndex],
       customBottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(canvasColor: Appcolors.primaryColor),
@@ -40,20 +43,24 @@ class _HomeScreenState extends State<HomeScreen> {
             items: [
               BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(getPathImage("quran.png"))),
-                label: "Quran",
+                label: AppLocalizations.of(context)!.quran_tab,
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(getPathImage("hadeth_ic.png"))),
-                label: "Hadeth",
+                label: AppLocalizations.of(context)!.hadeth_tab,
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(getPathImage("sebha.png"))),
-                label: "Sebha",
+                label: AppLocalizations.of(context)!.sebha_tab,
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(getPathImage("radio.png"))),
-                label: "Radio",
-              )
+                label: AppLocalizations.of(context)!.radio_tab,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: AppLocalizations.of(context)!.settings_tab,
+              ),
             ]),
       ),
     );

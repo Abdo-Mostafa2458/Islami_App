@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/constants/app_routes.dart';
 
 import '../../../Style/AppColors.dart';
@@ -32,7 +33,7 @@ class _HadethTabState extends State<HadethTab> {
           height: 4,
         ),
         Text(
-          "Hadeth",
+          AppLocalizations.of(context)!.alHadeth,
           style: Theme.of(context).textTheme.bodyMedium,
           textAlign: TextAlign.center,
         ),

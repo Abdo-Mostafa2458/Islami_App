@@ -29,7 +29,8 @@ class _SuraQuranState extends State<SuraQuran> {
     }
     return DefaultScreen(
       // appTitle: quranData.ayaName,
-      appTitle: quranData["ayaName"],
+      // appTitle: quranData["ayaName"],
+      appTitle: "Islami",
       body: verses.isEmpty
           ? const Center(
               heightFactor: 15,

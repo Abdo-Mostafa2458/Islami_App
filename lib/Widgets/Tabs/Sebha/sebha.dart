@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Style/AppColors.dart';
 import 'package:islami_app/constants/get_path_image.dart';
 
-class Sebha extends StatefulWidget {
-  const Sebha({super.key});
+class SebhaTab extends StatefulWidget {
+  const SebhaTab({super.key});
 
   @override
-  State<Sebha> createState() => _SebhaState();
+  State<SebhaTab> createState() => _SebhaTabState();
 }
 
-class _SebhaState extends State<Sebha> {
+class _SebhaTabState extends State<SebhaTab> {
   int counter = 0;
   double turns = 0.0;
   int index = 0;
@@ -53,7 +54,7 @@ class _SebhaState extends State<Sebha> {
               ),
             ),
             Text(
-              "Number of praises",
+              AppLocalizations.of(context)!.number_of_praises,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(
