@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Islami App',
+      title: "Islmai",
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('en'),
+      locale: Locale('ar'),
       routes: {
         AppRoutes.homeScreen: (_) => HomeScreen(),
         AppRoutes.suraQuran: (_) => SuraQuran(),
