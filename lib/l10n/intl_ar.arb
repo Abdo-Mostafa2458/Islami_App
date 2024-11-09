@@ -8,5 +8,11 @@
   "radio_tab": "الراديو",
   "settings_tab": "الإعدادات",
   "alHadeth": "الأحاديث",
-  "number_of_praises": "عدد التسبيحات"
+  "number_of_praises": "عدد التسبيحات",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "theme": "المود",
+  "light": "فاتح",
+  "dark": "غامق"
 }

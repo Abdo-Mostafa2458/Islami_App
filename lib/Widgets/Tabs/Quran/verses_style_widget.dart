@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../Provider/AppConfigration.dart';
 import '../../../Style/AppColors.dart';
+import '../../../Style/AppTheme.dart';
 import '../../../constants/numbers_list.dart';
 import '../../../constants/quran_list.dart';
 
@@ -17,6 +20,8 @@ class VersesStyleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -27,10 +32,12 @@ class VersesStyleWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 50,
           child: VerticalDivider(
-            color: Appcolors.primaryColor,
+            color: provider.selectedTheme == AppTheme.lightTheme
+                ? Appcolors.primaryColor
+                : Appcolors.goldenColor,
             thickness: 3,
             width: 20, // Increase width to make the divider visible
           ),
