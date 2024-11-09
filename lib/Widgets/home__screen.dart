@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
+import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/Widgets/Tabs/Settings/settings.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
 import 'package:islami_app/constants/get_path_image.dart';
+import 'package:provider/provider.dart';
 
 import 'Tabs/Hadeth/hadeth_tab.dart';
 import 'Tabs/Quran/quran_tab.dart';
@@ -29,11 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
     return DefaultScreen(
       appTitle: AppLocalizations.of(context)!.app_title,
       body: tabs[currentIndex],
       customBottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(canvasColor: Appcolors.primaryColor),
+        data: Theme.of(context).copyWith(
+            canvasColor: provider.selectedTheme == AppTheme.lightTheme
+                ? Appcolors.primaryColor
+                : Appcolors.darkPrimaryColor),
         child: BottomNavigationBar(
             currentIndex: currentIndex,
             onTap: (index) {

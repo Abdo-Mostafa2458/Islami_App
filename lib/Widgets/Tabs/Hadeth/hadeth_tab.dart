@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/constants/app_routes.dart';
+import 'package:provider/provider.dart';
 
 import '../../../Style/AppColors.dart';
+import '../../../Style/AppTheme.dart';
 import '../../../constants/get_path_image.dart';
 
 class HadethTab extends StatefulWidget {
@@ -19,6 +22,7 @@ class _HadethTabState extends State<HadethTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
     if (alHadeth.isEmpty) {
       loadHadethFile();
     }
@@ -27,8 +31,10 @@ class _HadethTabState extends State<HadethTab> {
         Image.asset(
           getPathImage("hadith_header_image.png"),
         ),
-        const Divider(
-          color: Appcolors.primaryColor,
+        Divider(
+          color: provider.selectedTheme == AppTheme.lightTheme
+              ? Appcolors.primaryColor
+              : Appcolors.goldenColor,
           thickness: 3,
           height: 4,
         ),
@@ -37,8 +43,10 @@ class _HadethTabState extends State<HadethTab> {
           style: Theme.of(context).textTheme.bodyMedium,
           textAlign: TextAlign.center,
         ),
-        const Divider(
-          color: Appcolors.primaryColor,
+        Divider(
+          color: provider.selectedTheme == AppTheme.lightTheme
+              ? Appcolors.primaryColor
+              : Appcolors.goldenColor,
           thickness: 3,
           height: 4,
         ),
@@ -50,14 +58,14 @@ class _HadethTabState extends State<HadethTab> {
                   ),
                 )
               : ListView.separated(
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, AppRoutes.hadethWidget,
-                              // arguments: alHadeth[index]
-                              arguments: {
-                                // "alHadeth" : alHadeth[index]
-                                "title": alHadeth[index]["title"],
+              itemBuilder: (context, index) {
+                return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.hadethWidget,
+                          // arguments: alHadeth[index]
+                          arguments: {
+                            // "alHadeth" : alHadeth[index]
+                            "title": alHadeth[index]["title"],
                                 "content": alHadeth[index]["content"]
                               });
                         },
@@ -68,8 +76,10 @@ class _HadethTabState extends State<HadethTab> {
                           textAlign: TextAlign.center,
                         ));
                   },
-                  separatorBuilder: (context, index) => const Divider(
-                        color: Appcolors.primaryColor,
+                  separatorBuilder: (context, index) => Divider(
+                        color: provider.selectedTheme == AppTheme.lightTheme
+                            ? Appcolors.primaryColor
+                            : Appcolors.goldenColor,
                         thickness: 3,
                         height: 3,
                         indent: 50,

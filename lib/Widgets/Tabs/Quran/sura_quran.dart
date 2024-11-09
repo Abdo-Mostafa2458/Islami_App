@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
+import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/item_sura.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
 import 'package:islami_app/constants/media_size.dart';
+import 'package:provider/provider.dart';
 
 class SuraQuran extends StatefulWidget {
   const SuraQuran({super.key});
@@ -17,6 +20,7 @@ class _SuraQuranState extends State<SuraQuran> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
     // QuranData quranData =
     //     ModalRoute.of(context)?.settings.arguments as QuranData;
     Map<String, dynamic> quranData =
@@ -33,18 +37,20 @@ class _SuraQuranState extends State<SuraQuran> {
       appTitle: "Islami",
       body: verses.isEmpty
           ? const Center(
-              heightFactor: 15,
-              child: CircularProgressIndicator(
-                color: Appcolors.primaryColor,
-              ),
-            )
+        heightFactor: 15,
+        child: CircularProgressIndicator(
+          color: Appcolors.primaryColor,
+        ),
+      )
           : Card(
-              margin: EdgeInsets.symmetric(
+        margin: EdgeInsets.symmetric(
                 vertical: getHeightSize(context, 0.04),
                 horizontal: getWidthSize(context, 0.04),
               ),
               elevation: 5,
-              color: Colors.white,
+              color: provider.selectedTheme == AppTheme.lightTheme
+                  ? Colors.white
+                  : Appcolors.darkPrimaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
@@ -56,44 +62,50 @@ class _SuraQuranState extends State<SuraQuran> {
                     Container(
                       padding: EdgeInsets.symmetric(
                           horizontal: getWidthSize(context, 0.100),
-                          vertical: getWidthSize(context, 0.0001)),
-                      child: Column(
-                        children: [
-                          Text(
+                    vertical: getWidthSize(context, 0.0001)),
+                child: Column(
+                  children: [
+                    Text(
                             quranData["ayaName"],
                             style: Theme.of(context)
                                 .textTheme
                                 .bodySmall
                                 ?.copyWith(
-                                    fontSize: getWidthSize(context, 0.08)),
+                                    fontSize: getWidthSize(context, 0.08),
+                                    color: provider.selectedTheme ==
+                                            AppTheme.lightTheme
+                                        ? Colors.black
+                                        : Colors.white),
                           ),
                           const SizedBox(
                             height: 3,
                           ),
-                          const Divider(
-                            color: Appcolors.primaryColor,
+                          Divider(
+                            color: provider.selectedTheme == AppTheme.lightTheme
+                                ? Appcolors.primaryColor
+                                : Colors.white,
                             thickness: 3,
                             height: 1, // Minimize divider height
                           )
                         ],
-                      ),
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          return ItemSura(
-                            verses: verses[index],
-                            indexOfAya: index,
-                            ayaTitle: quranData["ayaName"],
-                          );
-                        },
-                        itemCount: verses.length,
-                      ),
-                    ),
-                  ],
                 ),
               ),
-            ),
+              Expanded(
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return ItemSura(
+                      verses: verses[index],
+                      indexOfAya: index,
+                      ayaTitle: quranData["ayaName"],
+                    );
+                  },
+                  itemCount: verses.length,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 

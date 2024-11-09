@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/constants/media_size.dart';
+import 'package:provider/provider.dart';
 
 import '../../../Style/AppColors.dart';
+import '../../../Style/AppTheme.dart';
 import '../../defualt_screen.dart';
 
 class HadethWidget extends StatelessWidget {
@@ -9,6 +12,7 @@ class HadethWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
     // HadethData hadeth =
     //     ModalRoute.of(context)?.settings.arguments as HadethData;
     Map<String, dynamic> hadeth =
@@ -21,7 +25,9 @@ class HadethWidget extends StatelessWidget {
           horizontal: getWidthSize(context, 0.04),
         ),
         elevation: 5,
-        color: Colors.white,
+        color: provider.selectedTheme == AppTheme.lightTheme
+            ? Colors.white
+            : Appcolors.darkPrimaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
@@ -41,8 +47,10 @@ class HadethWidget extends StatelessWidget {
                   const SizedBox(
                     height: 2,
                   ),
-                  const Divider(
-                    color: Appcolors.primaryColor,
+                  Divider(
+                    color: provider.selectedTheme == AppTheme.lightTheme
+                        ? Appcolors.primaryColor
+                        : Appcolors.goldenColor,
                     thickness: 3,
                     height: 1,
                     indent: 35,

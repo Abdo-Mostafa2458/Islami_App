@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
+import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/verses_style_widget.dart';
 import 'package:islami_app/constants/app_routes.dart';
 import 'package:islami_app/constants/get_path_image.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants/numbers_list.dart';
 import '../../../constants/quran_list.dart';
@@ -13,6 +16,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
     return Column(
       children: [
         Expanded(
@@ -21,8 +25,10 @@ class QuranTab extends StatelessWidget {
             getPathImage("quran_header_icn.png"),
           ),
         ),
-        const Divider(
-          color: Appcolors.primaryColor,
+        Divider(
+          color: provider.selectedTheme == AppTheme.lightTheme
+              ? Appcolors.primaryColor
+              : Appcolors.goldenColor,
           thickness: 3,
           height: 3,
         ),
@@ -39,10 +45,12 @@ class QuranTab extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 50, // Set the desired height for the divider
               child: VerticalDivider(
-                color: Appcolors.primaryColor,
+                color: provider.selectedTheme == AppTheme.lightTheme
+                    ? Appcolors.primaryColor
+                    : Appcolors.goldenColor,
                 thickness: 3,
                 width: 20, // Increase width to make the divider visible
               ),
@@ -59,8 +67,10 @@ class QuranTab extends StatelessWidget {
             ),
           ],
         ),
-        const Divider(
-          color: Appcolors.primaryColor,
+        Divider(
+          color: provider.selectedTheme == AppTheme.lightTheme
+              ? Appcolors.primaryColor
+              : Appcolors.goldenColor,
           thickness: 3,
           height: 3,
         ),
@@ -79,11 +89,13 @@ class QuranTab extends StatelessWidget {
               },
               child: VersesStyleWidget(
                   text1: argumentsQuran[index],
-                      text2: versesNumber[index].toString(),
-                      index: index),
-                ),
-            separatorBuilder: (context, index) => const Divider(
-              color: Appcolors.primaryColor,
+                  text2: versesNumber[index].toString(),
+                  index: index),
+            ),
+            separatorBuilder: (context, index) => Divider(
+              color: provider.selectedTheme == AppTheme.lightTheme
+                  ? Appcolors.primaryColor
+                  : Appcolors.goldenColor,
               thickness: 3,
               height: 3,
               indent: 25,
