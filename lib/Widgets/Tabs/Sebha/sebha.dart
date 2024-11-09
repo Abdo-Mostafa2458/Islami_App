@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
+import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/constants/get_path_image.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -24,6 +27,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -37,8 +41,12 @@ class _SebhaTabState extends State<SebhaTab> {
                 children: [
                   Container(
                       margin: const EdgeInsets.only(left: 42, top: 15),
-                      child:
-                          Image.asset(getPathImage("head of seb7a_light.png"))),
+                      child: provider.selectedTheme == AppTheme.lightTheme
+                          ? Image.asset(getPathImage("head of seb7a_light.png"))
+                          : Image.asset(
+                              getPathImage("head of seb7a_light.png"),
+                              color: Appcolors.goldenColor,
+                            )),
                   Container(
                       margin: const EdgeInsets.only(top: 55),
                       child: InkWell(
@@ -48,14 +56,23 @@ class _SebhaTabState extends State<SebhaTab> {
                           child: AnimatedRotation(
                               turns: turns,
                               duration: const Duration(milliseconds: 200),
-                              child: Image.asset(
-                                  getPathImage("body of seb7a_light.png"))))),
+                              child: provider.selectedTheme ==
+                                      AppTheme.lightTheme
+                                  ? Image.asset(
+                                      getPathImage("body of seb7a_light.png"))
+                                  : Image.asset(
+                                      getPathImage("body of seb7a_light.png"),
+                                      color: Appcolors.goldenColor,
+                                    )))),
                 ],
               ),
             ),
             Text(
               AppLocalizations.of(context)!.number_of_praises,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: provider.selectedTheme == AppTheme.lightTheme
+                      ? Colors.black
+                      : Colors.white),
             ),
             const SizedBox(
               height: 20,
@@ -65,12 +82,18 @@ class _SebhaTabState extends State<SebhaTab> {
                 height: 75,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
-                  color: Appcolors.buttonColor,
+                  color: provider.selectedTheme == AppTheme.lightTheme
+                      ? Appcolors.buttonColor
+                      : Appcolors.darkPrimaryColor,
                   borderRadius: BorderRadius.circular(28),
                 ),
                 child: Text(
                   "$counter",
                   textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: provider.selectedTheme == AppTheme.lightTheme
+                          ? Colors.black
+                          : Colors.white),
                 )),
             const SizedBox(
               height: 20,
@@ -78,17 +101,19 @@ class _SebhaTabState extends State<SebhaTab> {
             Container(
                 height: 50,
                 padding:
-                    const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                 decoration: BoxDecoration(
-                  color: Appcolors.primaryColor,
+                  color: provider.selectedTheme == AppTheme.lightTheme
+                      ? Appcolors.primaryColor
+                      : Appcolors.goldenColor,
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: Text(
                   azkaar[index],
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: Colors.white),
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: provider.selectedTheme == AppTheme.lightTheme
+                          ? Colors.white
+                          : Colors.black),
                   textAlign: TextAlign.center,
                 )),
             const Spacer(),

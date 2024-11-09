@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/Provider/AppConfigration.dart';
+import 'package:islami_app/Style/AppTheme.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/get_path_image.dart';
 
@@ -12,10 +15,13 @@ class DefaultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppLanguageNotifier>(context);
     return Stack(
       children: [
         Image.asset(
-          getPathImage("main_background.png"),
+          provider.selectedTheme == AppTheme.lightTheme
+              ? getPathImage("main_background.png")
+              : getPathImage("main_background_dark.png"),
           fit: BoxFit.fill,
           width: double.infinity,
           height: double.infinity,

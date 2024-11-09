@@ -8,5 +8,11 @@
   "radio_tab": "Radio",
   "settings_tab": "Settings",
   "alHadeth": "Hadeth",
-  "number_of_praises": "Number_of_praises"
+  "number_of_praises": "Number_of_praises",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
 }
