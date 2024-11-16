@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Provider/AppConfigration.dart';
-import 'package:islami_app/Style/AppTheme.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Style/AppColors.dart';
@@ -23,7 +22,7 @@ class _LocalizationLanguageWidgetState
       width: double.infinity,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Colors.white
               : Appcolors.darkPrimaryColor,
           borderRadius: BorderRadius.only(
@@ -66,7 +65,7 @@ class _LocalizationLanguageWidgetState
         Text(language),
         Icon(
           Icons.check_outlined,
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Appcolors.primaryColor
               : Appcolors.goldenColor,
           size: 40,
@@ -83,7 +82,7 @@ class _LocalizationLanguageWidgetState
         Text(language),
         Icon(
           Icons.check_outlined,
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Colors.white
               : Appcolors.darkPrimaryColor,
           size: 40,

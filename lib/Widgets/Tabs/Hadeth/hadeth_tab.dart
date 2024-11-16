@@ -6,7 +6,6 @@ import 'package:islami_app/constants/app_routes.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Style/AppColors.dart';
-import '../../../Style/AppTheme.dart';
 import '../../../constants/get_path_image.dart';
 
 class HadethTab extends StatefulWidget {
@@ -32,7 +31,7 @@ class _HadethTabState extends State<HadethTab> {
           getPathImage("hadith_header_image.png"),
         ),
         Divider(
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Appcolors.primaryColor
               : Appcolors.goldenColor,
           thickness: 3,
@@ -44,7 +43,7 @@ class _HadethTabState extends State<HadethTab> {
           textAlign: TextAlign.center,
         ),
         Divider(
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Appcolors.primaryColor
               : Appcolors.goldenColor,
           thickness: 3,
@@ -77,7 +76,7 @@ class _HadethTabState extends State<HadethTab> {
                         ));
                   },
                   separatorBuilder: (context, index) => Divider(
-                        color: provider.selectedTheme == AppTheme.lightTheme
+                    color: provider.selectedTheme == ThemeMode.light
                             ? Appcolors.primaryColor
                             : Appcolors.goldenColor,
                         thickness: 3,

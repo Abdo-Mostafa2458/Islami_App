@@ -4,7 +4,6 @@ import 'package:islami_app/constants/get_path_image.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Style/AppColors.dart';
-import '../../../Style/AppTheme.dart';
 
 class ItemSura extends StatelessWidget {
   final String verses;
@@ -36,7 +35,7 @@ class ItemSura extends StatelessWidget {
                     getPathImage("sperator_mark.png"),
                     width: 50,
                     height: 50,
-                    color: provider.selectedTheme == AppTheme.lightTheme
+                    color: provider.selectedTheme == ThemeMode.light
                         ? Colors.black
                         : Colors.white,
                   ),
@@ -44,7 +43,7 @@ class ItemSura extends StatelessWidget {
                     "${indexOfAya + 1}",
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontSize: 16,
-                        color: provider.selectedTheme == AppTheme.lightTheme
+                        color: provider.selectedTheme == ThemeMode.light
                             ? Colors.black
                             : Colors.white),
                   ),
@@ -56,7 +55,7 @@ class ItemSura extends StatelessWidget {
                 textDirection: provider.selectedLanguage == 'en'
                     ? TextDirection.rtl
                     : TextDirection.ltr,
-                style: provider.selectedTheme == AppTheme.lightTheme
+                    style: provider.selectedTheme == ThemeMode.light
                     ? Theme.of(context).textTheme.bodySmall
                     : Theme.of(context)
                         .textTheme
@@ -68,7 +67,7 @@ class ItemSura extends StatelessWidget {
           ),
         ),
         Divider(
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Appcolors.primaryColor
               : Colors.white,
           thickness: 3,

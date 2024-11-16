@@ -5,7 +5,6 @@ import 'package:islami_app/Style/AppColors.dart';
 import 'package:islami_app/Widgets/Tabs/Settings/localization_language_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../../../Style/AppTheme.dart';
 import 'localization_theme_widget.dart';
 
 class Settings extends StatefulWidget {
@@ -35,7 +34,7 @@ class _SettingsState extends State<Settings> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(
-                      color: provider.selectedTheme == AppTheme.lightTheme
+                      color: provider.selectedTheme == ThemeMode.light
                           ? Appcolors.primaryColor
                           : Appcolors.goldenColor,
                       width: 3)),
@@ -47,7 +46,7 @@ class _SettingsState extends State<Settings> {
                       : AppLocalizations.of(context)!.arabic),
                   Icon(
                     Icons.arrow_drop_down,
-                    color: provider.selectedTheme == AppTheme.lightTheme
+                    color: provider.selectedTheme == ThemeMode.light
                         ? Colors.black
                         : Colors.white,
                   )
@@ -66,19 +65,19 @@ class _SettingsState extends State<Settings> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(
-                      color: provider.selectedTheme == AppTheme.lightTheme
+                      color: provider.selectedTheme == ThemeMode.light
                           ? Appcolors.primaryColor
                           : Appcolors.goldenColor,
                       width: 3)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(provider.selectedTheme == AppTheme.lightTheme
+                  Text(provider.selectedTheme == ThemeMode.light
                       ? AppLocalizations.of(context)!.light
                       : AppLocalizations.of(context)!.dark),
                   Icon(
                     Icons.arrow_drop_down,
-                    color: provider.selectedTheme == AppTheme.lightTheme
+                    color: provider.selectedTheme == ThemeMode.light
                         ? Colors.black
                         : Colors.white,
                   )

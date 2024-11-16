@@ -7,6 +7,8 @@ import 'package:islami_app/Widgets/home__screen.dart';
 import 'package:islami_app/constants/app_routes.dart';
 import 'package:provider/provider.dart';
 
+import 'Style/AppTheme.dart';
+
 void main() {
   runApp(ChangeNotifierProvider(
       create: (context) => AppLanguageNotifier(), child: MyApp()));
@@ -23,7 +25,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Islmai",
       debugShowCheckedModeBanner: false,
-      theme: provider.selectedTheme,
+      // theme: provider.selectedTheme,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: provider.selectedTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: Locale(provider.selectedLanguage),

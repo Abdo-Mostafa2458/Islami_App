@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Provider/AppConfigration.dart';
-import 'package:islami_app/Style/AppTheme.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/get_path_image.dart';
@@ -19,7 +18,7 @@ class DefaultScreen extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(
-          provider.selectedTheme == AppTheme.lightTheme
+          provider.selectedTheme == ThemeMode.light
               ? getPathImage("main_background.png")
               : getPathImage("main_background_dark.png"),
           fit: BoxFit.fill,

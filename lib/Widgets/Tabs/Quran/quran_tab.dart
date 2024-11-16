@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
-import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/verses_style_widget.dart';
 import 'package:islami_app/constants/app_routes.dart';
 import 'package:islami_app/constants/get_path_image.dart';
@@ -26,7 +25,7 @@ class QuranTab extends StatelessWidget {
           ),
         ),
         Divider(
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Appcolors.primaryColor
               : Appcolors.goldenColor,
           thickness: 3,
@@ -48,7 +47,7 @@ class QuranTab extends StatelessWidget {
             SizedBox(
               height: 50, // Set the desired height for the divider
               child: VerticalDivider(
-                color: provider.selectedTheme == AppTheme.lightTheme
+                color: provider.selectedTheme == ThemeMode.light
                     ? Appcolors.primaryColor
                     : Appcolors.goldenColor,
                 thickness: 3,
@@ -68,7 +67,7 @@ class QuranTab extends StatelessWidget {
           ],
         ),
         Divider(
-          color: provider.selectedTheme == AppTheme.lightTheme
+          color: provider.selectedTheme == ThemeMode.light
               ? Appcolors.primaryColor
               : Appcolors.goldenColor,
           thickness: 3,
@@ -93,7 +92,7 @@ class QuranTab extends StatelessWidget {
                   index: index),
             ),
             separatorBuilder: (context, index) => Divider(
-              color: provider.selectedTheme == AppTheme.lightTheme
+              color: provider.selectedTheme == ThemeMode.light
                   ? Appcolors.primaryColor
                   : Appcolors.goldenColor,
               thickness: 3,
