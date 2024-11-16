@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
-import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/constants/get_path_image.dart';
 import 'package:provider/provider.dart';
 
@@ -41,7 +40,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 children: [
                   Container(
                       margin: const EdgeInsets.only(left: 42, top: 15),
-                      child: provider.selectedTheme == AppTheme.lightTheme
+                      child: provider.selectedTheme == ThemeMode.light
                           ? Image.asset(getPathImage("head of seb7a_light.png"))
                           : Image.asset(
                               getPathImage("head of seb7a_light.png"),
@@ -57,7 +56,7 @@ class _SebhaTabState extends State<SebhaTab> {
                               turns: turns,
                               duration: const Duration(milliseconds: 200),
                               child: provider.selectedTheme ==
-                                      AppTheme.lightTheme
+                                  ThemeMode.light
                                   ? Image.asset(
                                       getPathImage("body of seb7a_light.png"))
                                   : Image.asset(
@@ -70,7 +69,7 @@ class _SebhaTabState extends State<SebhaTab> {
             Text(
               AppLocalizations.of(context)!.number_of_praises,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: provider.selectedTheme == AppTheme.lightTheme
+                  color: provider.selectedTheme == ThemeMode.light
                       ? Colors.black
                       : Colors.white),
             ),
@@ -82,7 +81,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 height: 75,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
-                  color: provider.selectedTheme == AppTheme.lightTheme
+                  color: provider.selectedTheme == ThemeMode.light
                       ? Appcolors.buttonColor
                       : Appcolors.darkPrimaryColor,
                   borderRadius: BorderRadius.circular(28),
@@ -91,7 +90,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   "$counter",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: provider.selectedTheme == AppTheme.lightTheme
+                      color: provider.selectedTheme == ThemeMode.light
                           ? Colors.black
                           : Colors.white),
                 )),
@@ -103,7 +102,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 padding:
                 const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                 decoration: BoxDecoration(
-                  color: provider.selectedTheme == AppTheme.lightTheme
+                  color: provider.selectedTheme == ThemeMode.light
                       ? Appcolors.primaryColor
                       : Appcolors.goldenColor,
                   borderRadius: BorderRadius.circular(24),
@@ -111,7 +110,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 child: Text(
                   azkaar[index],
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: provider.selectedTheme == AppTheme.lightTheme
+                      color: provider.selectedTheme == ThemeMode.light
                           ? Colors.white
                           : Colors.black),
                   textAlign: TextAlign.center,

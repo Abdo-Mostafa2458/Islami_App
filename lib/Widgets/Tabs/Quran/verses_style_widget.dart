@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../../Provider/AppConfigration.dart';
 import '../../../Style/AppColors.dart';
-import '../../../Style/AppTheme.dart';
 import '../../../constants/numbers_list.dart';
 import '../../../constants/quran_list.dart';
 
@@ -35,7 +34,7 @@ class VersesStyleWidget extends StatelessWidget {
         SizedBox(
           height: 50,
           child: VerticalDivider(
-            color: provider.selectedTheme == AppTheme.lightTheme
+            color: provider.selectedTheme == ThemeMode.light
                 ? Appcolors.primaryColor
                 : Appcolors.goldenColor,
             thickness: 3,

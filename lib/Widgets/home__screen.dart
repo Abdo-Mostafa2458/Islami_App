@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
-import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/Widgets/Tabs/Settings/settings.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
 import 'package:islami_app/constants/get_path_image.dart';
@@ -38,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: tabs[currentIndex],
       customBottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-            canvasColor: provider.selectedTheme == AppTheme.lightTheme
+            canvasColor: provider.selectedTheme == ThemeMode.light
                 ? Appcolors.primaryColor
                 : Appcolors.darkPrimaryColor),
         child: BottomNavigationBar(

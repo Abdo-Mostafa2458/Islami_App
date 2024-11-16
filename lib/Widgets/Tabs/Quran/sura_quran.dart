@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/Provider/AppConfigration.dart';
 import 'package:islami_app/Style/AppColors.dart';
-import 'package:islami_app/Style/AppTheme.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/item_sura.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
 import 'package:islami_app/constants/media_size.dart';
@@ -48,7 +47,7 @@ class _SuraQuranState extends State<SuraQuran> {
                 horizontal: getWidthSize(context, 0.04),
               ),
               elevation: 5,
-              color: provider.selectedTheme == AppTheme.lightTheme
+              color: provider.selectedTheme == ThemeMode.light
                   ? Colors.white
                   : Appcolors.darkPrimaryColor,
               shape: RoundedRectangleBorder(
@@ -73,7 +72,7 @@ class _SuraQuranState extends State<SuraQuran> {
                                 ?.copyWith(
                                     fontSize: getWidthSize(context, 0.08),
                                     color: provider.selectedTheme ==
-                                            AppTheme.lightTheme
+                                        ThemeMode.light
                                         ? Colors.black
                                         : Colors.white),
                           ),
@@ -81,7 +80,7 @@ class _SuraQuranState extends State<SuraQuran> {
                             height: 3,
                           ),
                           Divider(
-                            color: provider.selectedTheme == AppTheme.lightTheme
+                            color: provider.selectedTheme == ThemeMode.light
                                 ? Appcolors.primaryColor
                                 : Colors.white,
                             thickness: 3,
