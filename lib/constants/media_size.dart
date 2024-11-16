@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 double getHeightSize(context, double size) {
-  double height = MediaQuery.of(context).size.height * size;
+  double height = MediaQuery.sizeOf(context).height * size;
   return height;
 }
 
