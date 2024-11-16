@@ -4,7 +4,6 @@ import 'package:islami_app/constants/media_size.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Style/AppColors.dart';
-import '../../../Style/AppTheme.dart';
 import '../../defualt_screen.dart';
 
 class HadethWidget extends StatelessWidget {
@@ -25,7 +24,7 @@ class HadethWidget extends StatelessWidget {
           horizontal: getWidthSize(context, 0.04),
         ),
         elevation: 5,
-        color: provider.selectedTheme == AppTheme.lightTheme
+        color: provider.selectedTheme == ThemeMode.light
             ? Colors.white
             : Appcolors.darkPrimaryColor,
         shape: RoundedRectangleBorder(
@@ -48,7 +47,7 @@ class HadethWidget extends StatelessWidget {
                     height: 2,
                   ),
                   Divider(
-                    color: provider.selectedTheme == AppTheme.lightTheme
+                    color: provider.selectedTheme == ThemeMode.light
                         ? Appcolors.primaryColor
                         : Appcolors.goldenColor,
                     thickness: 3,

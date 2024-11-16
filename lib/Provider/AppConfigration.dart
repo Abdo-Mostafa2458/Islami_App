@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/Style/AppTheme.dart';
 
 class AppLanguageNotifier extends ChangeNotifier {
   String selectedLanguage = 'en';
-  ThemeData? selectedTheme = AppTheme.lightTheme;
+
+  // ThemeData? selectedTheme = AppTheme.lightTheme;
+  ThemeMode selectedTheme = ThemeMode.light;
 
   void changeLanguage(String newLanguage) {
     if (selectedLanguage == newLanguage) {
@@ -13,11 +14,16 @@ class AppLanguageNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeAppTheme(ThemeData theme) {
-    if (selectedTheme == theme) {
-      return;
-    }
-    selectedTheme = theme;
+  void changeAppTheme(ThemeMode newTheme) {
+    if (selectedTheme == newTheme) return;
+    selectedTheme = newTheme;
     notifyListeners();
   }
+// void changeAppTheme(ThemeData theme) {
+//   if (selectedTheme == theme) {
+//     return;
+//   }
+//   selectedTheme = theme;
+//   notifyListeners();
+// }
 }
