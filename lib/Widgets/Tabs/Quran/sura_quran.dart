@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:islami_app/Style/AppColors.dart';
 import 'package:islami_app/Widgets/Tabs/Quran/item_sura.dart';
 import 'package:islami_app/Widgets/defualt_screen.dart';
-import 'package:islami_app/constants/media_size.dart';
+
+import '../../../constants/size_of_screen.dart';
 
 class SuraQuran extends StatefulWidget {
   const SuraQuran({super.key});
